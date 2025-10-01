@@ -1,0 +1,216 @@
+{
+  "_section": "BASICS",
+  "basics": {
+    "name": "Wes Spangler",
+    "tagline": "Growth, Marketing, Product & Operations Leader",
+    "location": "Glen Cove, New York",
+    "email": "wspangleriii@gmail.com",
+    "phone": "",
+    "website": "",
+    "links": [
+      { "label": "LinkedIn", "url": "https://www.linkedin.com/in/wes-spangler/" }
+    ]
+  },
+
+  "_section": "SUMMARY",
+  "summary": "Growth and operations leader with a track record of scaling demand, building high-performing teams, and improving end-to-end customer journeys. I combine performance marketing, product thinking, and operational rigor to increase acquisition, conversion, and retention—while simplifying the systems and processes behind them. Recent work spans paid media, analytics, CRM/automation, and funnel optimization; prior leadership: marketing and patient experience/operations through rapid multi-state expansion.",
+
+  "_section": "SKILLS",
+  "skills": [
+    {
+      "category": "Growth & Marketing",
+      "tags": [
+        "Acquisition Strategy",
+        "Performance Marketing",
+        "SEO/Local SEO",
+        "Paid Search",
+        "Paid Social",
+        "CRO",
+        "Landing Pages",
+        "Attribution",
+        "Analytics",
+        "GTM Strategy",
+        "Lifecycle/CRM",
+        "Email/SMS"
+      ]
+    },
+    {
+      "category": "Product & Operations",
+      "tags": [
+        "Experimentation",
+        "A/B Testing",
+        "Journey Mapping",
+        "Process Design",
+        "Automation",
+        "Capacity Planning",
+        "KPIs & Dashboards",
+        "Cross-Functional Leadership",
+        "Team Building"
+      ]
+    },
+    {
+      "category": "Platforms & Tools",
+      "tags": [
+        "Google Ads",
+        "Google Analytics",
+        "Meta Ads",
+        "ActiveCampaign",
+        "HubSpot",
+        "Mailchimp",
+        "Tag Manager",
+        "SEMrush",
+        "Hotjar",
+        "WordPress",
+        "Unbounce",
+        "Figma",
+        "Adobe CC"
+      ]
+    }
+  ],
+
+  "_section": "EXPERIENCE",
+  "experience": [
+    {
+      "slug": "consultant-freelance",
+      "role": "Marketing Consultant",
+      "company": "Freelance",
+      "location": "Remote",
+      "start": "2023-10-01",
+      "end": "Present",
+      "summary": "Advise growth-stage companies on acquisition, marketing operations, and digital strategy; tailor playbooks to model and stage.",
+      "highlights": [
+        "Partner with leadership to build teams and implement CRM/automation aligned to ops/finance.",
+        "Guide GTM, positioning, and channel mix to diversify acquisition and lift conversion/retention.",
+        "Develop KPI frameworks/dashboards to teach CAC/ROI/funnel measurement."
+      ],
+      "tags": ["Growth", "Paid Media", "CRM", "Automation", "Analytics"]
+    },
+    {
+      "slug": "mindful-care-patient-exp-ops",
+      "role": "Director, Patient Experience & Operations",
+      "company": "Mindful Care",
+      "location": "Long Island, NY",
+      "start": "2023-01-01",
+      "end": "2023-10-01",
+      "summary": "Owned day-to-day operations across multi-state care delivery; improved satisfaction, reduced no-shows, and scaled processes.",
+      "highlights": [
+        "Oversaw 12,000+ monthly appointments across 80+ providers and six states.",
+        "Reduced no-show rates by 20% and increased NPS to 70 via process + comms improvements.",
+        "Implemented automation/reporting to streamline lead→appointment conversion and free capacity.",
+        "Led cross-functional teams to optimize scheduling, intake, and follow-up workflows.",
+        "Partnered with marketing/product to align capacity planning with demand generation.",
+        "Hired and managed a team of 40+ across patient experience, scheduling, and operations.",
+        "Instituted quarterly OKRs, performance reviews, and career development plans."
+      ],
+      "tags": ["Operations", "Automation", "CX/NPS", "Capacity Planning", "Analytics", "Process Improvement", "Team Leadership"]
+    },
+    {
+      "slug": "mindful-care-head-of-marketing",
+      "role": "Head of Marketing (First Marketing Hire)",
+      "company": "Mindful Care",
+      "location": "Long Island, NY",
+      "start": "2019-09-01",
+      "end": "2022-12-01",
+      "summary": "Built the marketing function and scaled acquisition during multi-state expansion; supported Seed→Series B.",
+      "highlights": [
+        "Directed multi-channel growth with seven-figure paid budgets.",
+        "Launched GTM for new states/service lines; aligned with ops readiness.",
+        "Implemented CRM/automation; built performance dashboards for leadership."
+      ],
+      "tags": ["Growth", "SEO", "Paid Search", "Paid Social", "CRO", "Automation", "GTM"]
+    },
+    {
+      "slug": "metro-physical-aquatic-therapy",
+      "role": "Digital Marketing Manager",
+      "company": "Metro Physical & Aquatic Therapy",
+      "location": "Long Island, NY",
+      "start": "2018-01-01",
+      "end": "2020-07-01",
+      "summary": "Led digital strategy for a multi-location provider; increased patient volume via integrated paid + organic.",
+      "highlights": [
+        "Drove ~40% patient-volume increase with integrated campaigns.",
+        "Launched SEO/UX-optimized site; materially lifted conversions/bookings.",
+        "Managed paid search/social; ~20% appointment lift while lowering CAC."
+      ],
+      "tags": ["SEO", "Paid Media", "Content", "Web Rebuild", "Analytics"]
+    },
+    {
+      "slug": "lensdirect-photographer-contractor",
+      "role": "Social Media Specialist / Photographer (Contract)",
+      "company": "LensDirect",
+      "location": "Long Island, NY",
+      "start": "2020-07-01",
+      "end": "2020-09-01",
+      "summary": "Produced product and brand content to support performance and lifecycle campaigns.",
+      "highlights": [
+        "Shot/edited product and lifestyle assets for ads, email, and onsite use.",
+        "Collaborated with growth team to deliver fast creative iterations."
+      ],
+      "tags": ["Content", "Creative", "Production", "Adobe CC"]
+    },
+    {
+      "slug": "healthtrax-membership-adviser-designer",
+      "role": "Membership Adviser & Graphic Designer",
+      "company": "Healthtrax Fitness",
+      "location": "Long Island, NY",
+      "start": "2017-08-01",
+      "end": "2018-06-01",
+      "summary": "Supported membership growth and brand collateral across locations.",
+      "highlights": [
+        "Designed print/digital materials for programs and promotions.",
+        "Assisted local teams with outreach and member onboarding."
+      ],
+      "tags": ["Design", "Membership", "Outreach"]
+    },
+    {
+      "slug": "ymca-lake-nona-membership-coordinator",
+      "role": "Membership Coordinator",
+      "company": "Lake Nona YMCA",
+      "location": "Orlando, FL",
+      "start": "2016-06-01",
+      "end": "2017-06-01",
+      "summary": "Coordinated member services and local promotions to increase engagement.",
+      "highlights": [
+        "Improved onboarding/check-in workflows for daily operations.",
+        "Partnered on community events to drive sign-ups."
+      ],
+      "tags": ["Operations", "Membership", "Community"]
+    },
+    {
+      "slug": "ymca-volusia-flagler-district-sports-director",
+      "role": "District Sports Director",
+      "company": "Volusia Flagler YMCA",
+      "location": "Palm Coast, FL",
+      "start": "2015-10-01",
+      "end": "2016-03-01",
+      "summary": "Oversaw multi-site youth sports programming and operations.",
+      "highlights": [
+        "Managed scheduling, staffing, and safety across locations.",
+        "Standardized volunteer training and league communications."
+      ],
+      "tags": ["Operations", "Team Leadership", "Program Management"]
+    },
+    {
+      "slug": "ymca-lake-nona-sports-coordinator",
+      "role": "Sports Coordinator",
+      "company": "Lake Nona YMCA",
+      "location": "Orlando, FL",
+      "start": "2013-11-01",
+      "end": "2015-09-01",
+      "summary": "Coordinated youth sports leagues; improved parent/coach experience.",
+      "highlights": [
+        "Introduced updated clinic formats and scheduling templates.",
+        "Led volunteer recruitment and game-day operations."
+      ],
+      "tags": ["Operations", "Coaching", "Community"]
+    }
+  ],
+
+
+  "meta": {
+    "analytics": "none",
+    "contact": "mailto",
+    "formspreeEndpoint": ""
+  }
+}
+

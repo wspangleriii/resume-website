@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en" dir="ltr" data-theme="auto">
+  <head>
+    <!-- =========================
+         SECTION: HEAD (Meta & SEO)
+         ========================= -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Wes Spangler — Growth, Marketing, Product & Operations Leader</title>
+    <meta name="description" content="The online resume of Wes Spangler — Growth, Marketing, Product & Operations Leader based in Glen Cove, NY." />
+    <link rel="canonical" href="/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Wes Spangler — Growth, Marketing, Product & Operations Leader" />
+    <meta property="og:description" content="Data-driven growth and operations leadership." />
+    <meta property="og:image" content="og-image.png" />
+
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="app-icon.png" />
+    <link rel="sitemap" type="application/xml" href="sitemap.xml" />
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Preload JSON so app.js gets it fast -->
+    <link rel="preload" as="fetch" href="resume.json" crossorigin="anonymous" />
+  </head>
+
+  <body>
+    <!-- =========================
+         SECTION: HEADER
+         ========================= -->
+    <header class="site-header" role="banner">
+      <div class="container header-grid">
+        <div class="branding">
+          <h1 id="site-name">Wes Spangler</h1>
+      </div>
+      <div class="actions">
+        <a class="btn" href="#contact" data-nav>Contact</a>
+      </div>
+    </div>
+    </header>
+
+
+    <!-- =========================
+         SECTION: MAIN
+         ========================= -->
+    <main id="main" role="main">
+      <!-- Summary -->
+      <section id="summary" class="card">
+        <h2>Summary</h2>
+        <p id="summary-text"></p>
+        <p id="location" class="muted"></p>
+        <div id="links" class="inline-list"></div>
+      </section>
+
+      <!-- Experience -->
+      <section id="experience" class="card">
+        <h2>Experience</h2>
+        <div id="experience-list" class="stack"></div>
+      </section>
+
+      <!-- Skills -->
+      <section id="skills" class="card">
+        <h2>Skills</h2>
+        <div id="skills-grid" class="grid"></div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="card">
+        <h2>Contact</h2>
+        <div id="contact-slot" class="stack"></div>
+      </section>
+    </main>
+
+    <!-- =========================
+         SECTION: FOOTER
+         ========================= -->
+    <footer class="site-footer" role="contentinfo">
+      <div class="container small muted">
+        <span>&copy; <span id="year"></span> <span id="footer-name">Wes Spangler</span></span>
+        <span class="dot">&middot;</span>
+        <a href="#summary" data-nav>Back to top</a>
+      </div>
+    </footer>
+
+    <!-- JSON-LD injected by app.js -->
+    <script id="ld+json" type="application/ld+json">{}</script>
+
+    <!-- App -->
+    <script defer type="module" src="app.js"></script>
+  </body>
+</html>

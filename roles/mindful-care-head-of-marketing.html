@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en" data-theme="auto">
+<!-- =========================
+     SECTION: HEAD (Meta & Styles)
+     ========================= -->
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wes Spangler — Head of Marketing (Mindful Care)</title>
+  <meta name="description" content="Case study: Wes Spangler as Head of Marketing at Mindful Care — built the function from first hire, scaled multi-state acquisition, instituted CRM/automation, dashboards, and GTM playbooks." />
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../app-icon.png">
+  <link rel="stylesheet" href="../styles.css" />
+  <script>window.ROLE_SLUG="mindful-care-head-of-marketing";</script>
+  <style>
+    /* ---- Page-local (scoped) styles ---- */
+    .hero { display:grid; gap:.5rem; padding:1.25rem 1.25rem 1rem }
+    .hero h1 { font-size:1.6rem; line-height:1.2 }
+    .lead { color:var(--muted) }
+    .kpis { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.75rem; margin-top:.25rem }
+    .kpi { border:1px solid var(--border); border-radius:.9rem; padding:.75rem }
+    .kpi .n { font-weight:800; font-size:1.25rem }
+    .grid.auto { display:grid; gap:.75rem }
+    .pill { display:inline-block; padding:.35rem .6rem; border:1px solid var(--border); border-radius:999px; font-size:.9rem; margin:.25rem .35rem .25rem 0; }
+    .inline-note { font-size:.9rem; color:var(--muted) }
+    .split { display:grid; gap:1rem }
+    .chart-card { border:1px solid var(--border); border-radius:.9rem; padding:.75rem; }
+    .chart-title { display:flex; justify-content:space-between; gap:.5rem; align-items:baseline }
+    .legend { display:flex; gap:.6rem; align-items:center; font-size:.9rem; color:var(--muted) }
+    .legend span { display:inline-block; width:.8rem; height:.8rem; border-radius:2px; background: currentColor; opacity:.75 }
+    .cta-row { display:flex; flex-wrap:wrap; gap:.5rem; justify-content:flex-end; }
+    @media (min-width:720px){
+      .hero h1{font-size:1.9rem}
+      .kpis{grid-template-columns:repeat(4,1fr)}
+      .split { grid-template-columns:1.1fr .9fr }
+    }
+  </style>
+</head>
+
+<!-- =========================
+     SECTION: BODY (Shell)
+     ========================= -->
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- =========================
+       SECTION: HEADER (Brand & Back)
+       ========================= -->
+  <header class="site-header" role="banner">
+    <div class="container header-grid">
+      <div class="branding">
+        <h1 id="site-name">Wes Spangler</h1>
+        <p id="site-tagline" class="muted">Growth, Marketing, Product & Operations Leader</p>
+      </div>
+      <nav aria-label="Primary" class="primary-nav">
+        <ul>
+          <li><a href="../index.html#experience">← Back to Experience</a></li>
+          <li><a href="#overview" data-nav>Overview</a></li>
+          <li><a href="#channels" data-nav>Channels</a></li>
+          <li><a href="#funnel" data-nav>Funnel</a></li>
+          <li><a href="#ops" data-nav>Org & Ops</a></li>
+          <li><a href="#dash" data-nav>Dashboards</a></li>
+          <li><a href="#contact" data-nav>Contact</a></li>
+        </ul>
+      </nav>
+      <div class="actions">
+        <button id="theme-toggle" class="btn icon-btn" aria-label="Toggle theme" title="Switch theme">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3v2m0 14v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M3 12h2m14 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42M8 12a4 4 0 1 0 8 0 4 4 0 0 0-8 0Z"/></svg>
+        </button>
+        <a id="resume-download" class="btn" href="../assets/Wes-Spangler-Resume-2025.pdf" download>Download Resume (PDF)</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================
+       SECTION: MAIN
+       ========================= -->
+  <main id="main" class="container stack">
+
+    <!-- ===== Hero / Intro ===== -->
+    <section class="card hero" id="overview">
+      <h1>Head of Marketing (First Marketing Hire)</h1>
+      <p class="lead">Built the marketing function and scaled multi-state acquisition from Seed to Series B. Owned paid channels, SEO/CRO, lifecycle/automation, and analytics—while hiring the core team and instituting operating rhythms.</p>
+      <div class="kpis" aria-label="Snapshot KPIs (representative)">
+        <div class="kpi"><div class="n">+400%</div><div class="t muted">Revenue growth during expansion</div></div>
+        <div class="kpi"><div class="n">7-fig</div><div class="t muted">Annual paid media responsibly managed</div></div>
+        <div class="kpi"><div class="n">↓CAC</div><div class="t muted">Through mix shift & CRO</div></div>
+        <div class="kpi"><div class="n">NPS ↑</div><div class="t muted">Lifecycle & journey improvements</div></div>
+      </div>
+    </section>
+
+    <!-- ===== Auto-rendered Role Detail from resume.json ===== -->
+    <section id="experience" class="card">
+      <h2>Role Detail</h2>
+      <div id="experience-list" class="stack"></div>
+    </section>
+
+    <!-- ===== Channels & Budget Story ===== -->
+    <section id="channels" class="card">
+      <h2>Channels & Mix</h2>
+      <div class="split">
+        <div class="stack small">
+          <p>Grew acquisition with disciplined spend: search as intent backbone, paid social to open new audiences, SEO & content for compounding volume, and conversion-first landing pages to lower CAC.</p>
+          <div>
+            <span class="pill">Google Ads</span><span class="pill">Meta Ads</span>
+            <span class="pill">SEO/Local SEO</span><span class="pill">Landing Pages</span>
+            <span class="pill">Attribution</span><span class="pill">Experimentation</span>
+          </div>
+          <p class="inline-note">Playbooks: channel briefs, weekly pacing, MBR/QBR, and “stoplight” dashboards for fast reallocations.</p>
+        </div>
+        <div class="chart-card" aria-labelledby="mixTitle">
+          <div class="chart-title">
+            <strong id="mixTitle">Channel Mix (illustrative)</strong>
+            <div class="legend"><span style="color: currentColor"></span>Share of spend</div>
+          </div>
+          <canvas id="mixChart" width="640" height="360" role="img" aria-label="Bar chart of channel spend mix."></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Funnel Improvements ===== -->
+    <section id="funnel" class="card">
+      <h2>Funnel & CRO</h2>
+      <div class="split">
+        <div class="chart-card" aria-labelledby="funnelTitle">
+          <div class="chart-title">
+            <strong id="funnelTitle">Funnel Conversion Lift (illustrative)</strong>
+            <div class="legend">
+              <span style="color: currentColor"></span>Before
+              <span style="color: var(--primary)"></span>After
+            </div>
+          </div>
+          <canvas id="funnelChart" width="640" height="360" role="img" aria-label="Grouped bars showing conversion rate improvements across stages."></canvas>
+        </div>
+        <div class="stack small">
+          <ul class="checklist">
+            <li>Introduced “minimum viable redesigns” to LPs → consistent CVR gains without heavy rebuild cycles.</li>
+            <li>Standardized measurement: GA4 + GTM event design, form tracking, and CRM closed-loop baselines.</li>
+            <li>Qual/quant insights with Hotjar & survey pulses feeding the A/B backlog.</li>
+            <li>Lifecycle fixes: faster lead response, routing, and nurture sequences to reduce drop-off.</li>
+          </ul>
+          <p class="inline-note">Outcome: lower CPC × higher CVR × clearer handoff → <em>reliable</em> CAC reduction.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Org & Operating Rhythm ===== -->
+    <section id="ops" class="card">
+      <h2>Org & Ops</h2>
+      <div class="grid auto">
+        <div class="details"><details open>
+          <summary><strong>Hiring & Team</strong></summary>
+          <p class="muted">Built the internal team and managed agencies; clear swimlanes across paid, content/SEO, lifecycle, and analytics.</p>
+        </details></div>
+        <div class="details"><details open>
+          <summary><strong>GTM Process</strong></summary>
+          <p class="muted">Template GTM for new states/services: research, forecasting, creative briefs, LPs, ops readiness, and reporting.</p>
+        </details></div>
+        <div class="details"><details open>
+          <summary><strong>Operating Cadence</strong></summary>
+          <p class="muted">Weekly pacing, MBR/QBR, red-yellow-green dashboards, and post-mortems → faster decisions & fewer surprises.</p>
+        </details></div>
+      </div>
+    </section>
+
+    <!-- ===== Dashboards (KPIs) ===== -->
+    <section id="dash" class="card">
+      <h2>Dashboards & KPIs</h2>
+      <div class="split">
+        <div class="stack small">
+          <p>Shifted leadership focus from channel vanity metrics to operating KPIs: CAC, LTV, payback, CVR by stage, and NPS. Delivered simple, truthful dashboards so finance, ops, and marketing were steering together.</p>
+          <div>
+            <span class="pill">CAC</span><span class="pill">LTV</span><span class="pill">Payback</span>
+            <span class="pill">Lead→Appt CVR</span><span class="pill">NPS</span>
+          </div>
+        </div>
+        <div class="chart-card" aria-labelledby="kpiTitle">
+          <div class="chart-title">
+            <strong id="kpiTitle">CAC Trend vs Goal (illustrative)</strong>
+            <div class="legend">
+              <span style="color: var(--primary)"></span>CAC
+              <span style="color: currentColor"></span>Goal
+            </div>
+          </div>
+          <canvas id="kpiChart" width="640" height="360" role="img" aria-label="Line chart of CAC trending toward goal."></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Contact (reuse global renderer) ===== -->
+    <section id="contact" class="card">
+      <h2>Contact</h2>
+      <div id="contact-slot" class="stack"></div>
+    </section>
+
+  </main>
+
+  <!-- =========================
+       SECTION: FOOTER
+       ========================= -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container small muted">
+      <span>&copy; <span id="year"></span> <span id="footer-name">Wes Spangler</span></span>
+      <span class="dot">&middot;</span>
+      <a href="#main">Back to top</a>
+    </div>
+  </footer>
+
+  <!-- =========================
+       SECTION: JSON-LD (Injected)
+       ========================= -->
+  <script id="ld+json" type="application/ld+json">{}</script>
+
+  <!-- =========================
+       SECTION: SCRIPTS
+       ========================= -->
+  <script defer type="module" src="../app.js"></script>
+
+  <!-- Page-local charts (no libs, accessible fallbacks) -->
+  <script>
+    // Simple canvas helpers (no external libs)
+    function barChart(canvasId, labels, values, color){
+      const c = document.getElementById(canvasId);
+      if(!c) return; const d = c.getContext('2d'); const W = c.width, H = c.height;
+      d.clearRect(0,0,W,H); const pad=40, n=values.length, bw=(W-pad*2)/n*.7, gap=(W-pad*2)/n*.3;
+      const max=Math.max(...values,1); d.strokeStyle=getComputedStyle(document.documentElement).getPropertyValue('--border'); d.beginPath(); d.moveTo(pad, H-pad); d.lineTo(W-pad, H-pad); d.stroke();
+      values.forEach((v,i)=>{
+        const x=pad + i*((W-pad*2)/n) + gap/2, h=(H-pad*2)*(v/max), y=H-pad-h;
+        d.fillStyle=color; d.fillRect(x,y,bw,h); d.fillStyle='#888'; d.font='12px system-ui,-apple-system,Segoe UI,Roboto,Inter,sans-serif';
+        d.fillText(labels[i], x, H-pad+16);
+      });
+    }
+    function groupedBars(canvasId, labels, before, after, colorA, colorB){
+      const c = document.getElementById(canvasId); if(!c) return; const d=c.getContext('2d'); const W=c.width,H=c.height;
+      d.clearRect(0,0,W,H); const pad=40, n=labels.length, slot=(W-pad*2)/n, bw=slot*.35, gap=slot*.1;
+      const max=Math.max(...before,...after,1);
+      d.strokeStyle=getComputedStyle(document.documentElement).getPropertyValue('--border'); d.beginPath(); d.moveTo(pad,H-pad); d.lineTo(W-pad,H-pad); d.stroke();
+      labels.forEach((lab,i)=>{
+        const x0=pad+i*slot;
+        const hA=(H-pad*2)*(before[i]/max), hB=(H-pad*2)*(after[i]/max);
+        d.fillStyle=colorA; d.fillRect(x0+gap, H-pad-hA, bw, hA);
+        d.fillStyle=colorB; d.fillRect(x0+gap+bw+gap, H-pad-hB, bw, hB);
+        d.fillStyle='#888'; d.font='12px system-ui,-apple-system,Segoe UI,Roboto,Inter,sans-serif';
+        d.fillText(lab, x0+gap, H-pad+16);
+      });
+    }
+    function lineChart(canvasId, points, goal, colorLine, colorGoal){
+      const c=document.getElementById(canvasId); if(!c) return; const d=c.getContext('2d'); const W=c.width,H=c.height;
+      d.clearRect(0,0,W,H); const pad=40, n=points.length, step=(W-pad*2)/(n-1);
+      const max=Math.max(...points,...goal,1), min=Math.min(...points,...goal,0);
+      function y(v){ return H-pad - (H-pad*2)*((v-min)/(max-min||1)); }
+      // goal
+      d.strokeStyle=colorGoal; d.setLineDash([6,6]); d.beginPath(); goal.forEach((v,i)=>{ const X=pad+i*step; const Y=y(v); i?d.lineTo(X,Y):d.moveTo(X,Y); }); d.stroke(); d.setLineDash([]);
+      // line
+      d.strokeStyle=colorLine; d.lineWidth=2; d.beginPath(); points.forEach((v,i)=>{ const X=pad+i*step; const Y=y(v); i?d.lineTo(X,Y):d.moveTo(X,Y); }); d.stroke();
+      // labels
+      d.fillStyle='#888'; d.font='12px system-ui,-apple-system,Segoe UI,Roboto,Inter,sans-serif';
+      for(let i=0;i<n;i++){ d.fillText(`M${i+1}`, pad+i*step-8, H-pad+16); }
+    }
+
+    // Colors based on CSS variables
+    function cssVar(name){ return getComputedStyle(document.documentElement).getPropertyValue(name).trim() || '#4e8cff'; }
+    const primary = cssVar('--primary') || '#4e8cff';
+    const textCol = cssVar('--text') || '#d9d9d9';
+
+    // Render on load (and on theme toggle)
+    function drawAll(){
+      barChart('mixChart', ['Search','Social','SEO','LP/CRO'], [42,28,20,10], textCol);
+      groupedBars('funnelChart', ['Ad→LP','LP→Lead','Lead→Appt'], [0.18,0.12,0.35], [0.24,0.17,0.45], textCol, primary);
+      lineChart('kpiChart', [290,270,260,240,225,210], [260,250,240,230,220,210], primary, textCol);
+    }
+    document.addEventListener('DOMContentLoaded', drawAll);
+    // Redraw on theme change (when button toggles data-theme)
+    document.addEventListener('click', (e)=>{ if(e.target && e.target.id==='theme-toggle'){ setTimeout(drawAll, 0); }});
+  </script>
+</body>
+</html>

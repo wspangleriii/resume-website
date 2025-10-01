@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/resume.schema.json",
+
+  "title": "Wes Spangler Resume Schema",
+  "type": "object",
+  "additionalProperties": true,
+
+  "required": ["basics", "summary", "skills", "experience", "meta"],
+
+  "properties": {
+    "basics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "tagline", "location", "links"],
+      "properties": {
+        "name": { "type": "string" },
+        "tagline": { "type": "string" },
+        "location": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "phone": { "type": "string" },
+        "website": { "type": "string" },
+        "links": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["label", "url"],
+            "properties": {
+              "label": { "type": "string" },
+              "url": { "type": "string", "format": "uri" }
+            }
+          }
+        }
+      }
+    },
+
+    "summary": { "type": "string" },
+
+    "skills": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["category", "tags"],
+        "properties": {
+          "category": { "type": "string" },
+          "tags": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+
+    "experience": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["slug", "role", "company", "start"],
+        "properties": {
+          "slug": { "type": "string" },
+          "role": { "type": "string" },
+          "company": { "type": "string" },
+          "location": { "type": "string" },
+          "start": { "type": "string", "format": "date" },
+          "end": { "type": "string" },
+          "summary": { "type": "string" },
+          "highlights": { "type": "array", "items": { "type": "string" } },
+          "tags": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+
+    "meta": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["analytics", "contact"],
+      "properties": {
+        "analytics": { "type": "string", "enum": ["none", "plausible", "fathom"] },
+        "contact": { "type": "string", "enum": ["mailto", "formspree"] },
+        "formspreeEndpoint": { "type": "string" },
+        "resumePdf": { "type": "string" }
+      }
+    }
+  }
+}

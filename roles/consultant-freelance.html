@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en" data-theme="auto">
+<!-- =========================
+     SECTION: HEAD (Meta & Styles)
+     ========================= -->
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wes Spangler — Marketing Consultant</title>
+  <meta name="description" content="Wes Spangler — growth, marketing, product & operations consultant. Acquisition, lifecycle/CRM, analytics & dashboards, CRO/experimentation, and go-to-market execution." />
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../app-icon.png">
+  <link rel="stylesheet" href="../styles.css" />
+  <script>window.ROLE_SLUG="consultant-freelance";</script>
+  <style>
+    /* -------- Page-local polish (kept small & scoped) -------- */
+    .hero { display:grid; gap:.5rem; padding:1.25rem 1.25rem 1rem }
+    .hero h1 { font-size:1.5rem; line-height:1.2 }
+    .kpis { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.75rem; }
+    .kpi { border:1px solid var(--border); border-radius:.75rem; padding:.75rem }
+    .kpi .n { font-weight:800; font-size:1.25rem }
+    .lead { color:var(--muted) }
+    .grid.auto { display:grid; gap:.75rem }
+    @media (min-width:720px){ .kpis{grid-template-columns:repeat(4,1fr)} .hero h1{font-size:1.8rem} }
+    .pill { display:inline-block; padding:.35rem .6rem; border:1px solid var(--border); border-radius:999px; font-size:.9rem; margin:.25rem .35rem .25rem 0; }
+    .card h3 { margin-bottom:.35rem }
+    .checklist li::marker { color: var(--primary); }
+    .cta-row { display:flex; flex-wrap:wrap; gap:.5rem; justify-content:flex-end; }
+  </style>
+</head>
+
+<!-- =========================
+     SECTION: BODY (Shell)
+     ========================= -->
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- =========================
+       SECTION: HEADER (Brand & Back)
+       ========================= -->
+  <header class="site-header" role="banner">
+    <div class="container header-grid">
+      <div class="branding">
+        <h1 id="site-name">Wes Spangler</h1>
+        <p id="site-tagline" class="muted">Growth, Marketing, Product & Operations Leader</p>
+      </div>
+      <nav aria-label="Primary" class="primary-nav">
+        <ul>
+          <li><a href="../index.html#experience">← Back to Experience</a></li>
+          <li><a href="#overview" data-nav>Overview</a></li>
+          <li><a href="#offerings" data-nav>Offerings</a></li>
+          <li><a href="#capabilities" data-nav>Capabilities</a></li>
+          <li><a href="#models" data-nav>Engagement</a></li>
+          <li><a href="#contact" data-nav>Contact</a></li>
+        </ul>
+      </nav>
+      <div class="actions">
+        <button id="theme-toggle" class="btn icon-btn" aria-label="Toggle theme" title="Switch theme">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3v2m0 14v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M3 12h2m14 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42M8 12a4 4 0 1 0 8 0 4 4 0 0 0-8 0Z"/></svg>
+        </button>
+        <a id="resume-download" class="btn" href="../assets/Wes-Spangler-Resume-2025.pdf" download>Download Resume (PDF)</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================
+       SECTION: MAIN
+       ========================= -->
+  <main id="main" class="container stack">
+
+    <!-- ===== Hero / Page Intro ===== -->
+    <section class="card hero" id="overview">
+      <h1>Marketing Consultant</h1>
+      <p class="lead">I help founders and growth teams increase acquisition, improve conversion, and build the lightweight systems that make performance repeatable.</p>
+      <div class="kpis" aria-label="Snapshot KPIs (representative)">
+        <div class="kpi"><div class="n">+400%</div><div class="t muted">Rev. growth during multi-state expansion</div></div>
+        <div class="kpi"><div class="n">20%↓</div><div class="t muted">No-show rate reduction via comms & ops</div></div>
+        <div class="kpi"><div class="n">7-fig</div><div class="t muted">Paid media managed with CAC discipline</div></div>
+        <div class="kpi"><div class="n">NPS 70</div><div class="t muted">Satisfaction through journey improvements</div></div>
+      </div>
+    </section>
+
+    <!-- ===== Auto-rendered Role Detail from resume.json (kept!) ===== -->
+    <section id="experience" class="card">
+      <h2>Role Detail</h2>
+      <div id="experience-list" class="stack"></div>
+    </section>
+
+    <!-- ===== Offerings / Where I Help Most ===== -->
+    <section id="offerings" class="card">
+      <h2>Offerings</h2>
+      <div class="grid auto">
+        <div class="details">
+          <details open>
+            <summary><strong>Acquisition & Go-to-Market</strong></summary>
+            <ul class="checklist">
+              <li>Channel strategy & budget allocation (search, social, affiliates)</li>
+              <li>SEO foundations: IA, technical basics, content focus, local</li>
+              <li>Landing pages that convert (copy, social proof, forms, speed)</li>
+              <li>GTM launches for new markets/services with ops alignment</li>
+            </ul>
+          </details>
+        </div>
+        <div class="details">
+          <details open>
+            <summary><strong>Lifecycle / CRM & Automation</strong></summary>
+            <ul class="checklist">
+              <li>Response SLAs, lead routing, and sales handoffs</li>
+              <li>Nurture design (email/SMS), re-engagement, and win-back</li>
+              <li>Automation to reduce manual work and tighten follow-up</li>
+              <li>CRM hygiene & reporting (HubSpot, ActiveCampaign, Mailchimp)</li>
+            </ul>
+          </details>
+        </div>
+        <div class="details">
+          <details open>
+            <summary><strong>Analytics, KPIs & Attribution</strong></summary>
+            <ul class="checklist">
+              <li>North-star metrics & operating dashboards (CAC, LTV, CVR)</li>
+              <li>GA4 + GTM event design; channel consistency & sanity checks</li>
+              <li>Simple, truthful attribution to guide budgets</li>
+              <li>Experiment tracking and learning loops</li>
+            </ul>
+          </details>
+        </div>
+        <div class="details">
+          <details open>
+            <summary><strong>CRO & Experimentation</strong></summary>
+            <ul class="checklist">
+              <li>Hypothesis-driven A/B tests with prioritized backlog</li>
+              <li>Friction audits across ads → LP → form → CRM stages</li>
+              <li>Qual/quant insights (Hotjar, surveys, funnel analytics)</li>
+              <li>“Minimum viable redesigns” to move quickly</li>
+            </ul>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Selected Results ===== -->
+    <section class="card">
+      <h2>Selected Results</h2>
+      <ul class="checklist">
+        <li>Scaled acquisition & built the marketing function from first hire to multi-state expansion; contributed to Seed→Series B.</li>
+        <li>Reduced no-shows by ~20% and lifted NPS to 70 by improving ops, comms, and capacity planning.</li>
+        <li>Implemented CRM + lifecycle automation improving response and conversion, while cutting manual effort.</li>
+        <li>Established KPI dashboards so leadership could steer to CAC/LTV and conversion instead of channel vanity metrics.</li>
+      </ul>
+    </section>
+
+    <!-- ===== Capabilities / Skills ===== -->
+    <section id="capabilities" class="card">
+      <h2>Capabilities</h2>
+      <div class="stack">
+        <div>
+          <h3>Channels & Tactics</h3>
+          <div>
+            <span class="pill">Paid Search</span><span class="pill">Paid Social</span>
+            <span class="pill">SEO/Local SEO</span><span class="pill">Landing Pages</span>
+            <span class="pill">Attribution</span><span class="pill">Experimentation</span>
+            <span class="pill">CRO</span><span class="pill">Content</span>
+          </div>
+        </div>
+        <div>
+          <h3>Lifecycle & Ops</h3>
+          <div>
+            <span class="pill">Lifecycle/CRM</span><span class="pill">Email/SMS</span>
+            <span class="pill">Automation</span><span class="pill">Journey Mapping</span>
+            <span class="pill">Capacity Planning</span><span class="pill">CX/NPS</span>
+            <span class="pill">Process Design</span>
+          </div>
+        </div>
+        <div>
+          <h3>Analytics & Tooling</h3>
+          <div>
+            <span class="pill">GA4</span><span class="pill">Google Ads</span><span class="pill">GTM</span>
+            <span class="pill">Meta Ads</span><span class="pill">HubSpot</span>
+            <span class="pill">ActiveCampaign</span><span class="pill">Mailchimp</span>
+            <span class="pill">SEMrush</span><span class="pill">Hotjar</span>
+            <span class="pill">WordPress</span><span class="pill">Unbounce</span>
+            <span class="pill">Figma</span><span class="pill">Adobe CC</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Engagement Models ===== -->
+    <section id="models" class="card">
+      <h2>Engagement Models</h2>
+      <div class="grid" style="--cols:3; display:grid; gap:.75rem;">
+        <div class="details">
+          <details open>
+            <summary><strong>Advisor</strong></summary>
+            <p class="muted">Weekly/bi-weekly cadence for strategy, hiring, and prioritization. Great for founders or early marketing leaders.</p>
+          </details>
+        </div>
+        <div class="details">
+          <details open>
+            <summary><strong>Fractional Lead</strong></summary>
+            <p class="muted">Own the plan and outcomes 1–3 days/week; coordinate channels, vendors, and analytics; set operating rhythm.</p>
+          </details>
+        </div>
+        <div class="details">
+          <details open>
+            <summary><strong>Hands-on Projects</strong></summary>
+            <p class="muted">Focused sprints: new LPs, CRM/lifecycle setup, GA4/GTM hygiene, channel buildouts, or testing programs.</p>
+          </details>
+        </div>
+      </div>
+      <div class="cta-row" style="margin-top:.5rem">
+        <a class="btn primary" href="#contact">Discuss fit →</a>
+      </div>
+    </section>
+
+    <!-- ===== Contact (reuses site renderer below) ===== -->
+    <section id="contact" class="card">
+      <h2>Contact</h2>
+      <div id="contact-slot" class="stack"></div>
+    </section>
+  </main>
+
+  <!-- =========================
+       SECTION: FOOTER
+       ========================= -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container small muted">
+      <span>&copy; <span id="year"></span> <span id="footer-name">Wes Spangler</span></span>
+      <span class="dot">&middot;</span>
+      <a href="#main">Back to top</a>
+    </div>
+  </footer>
+
+  <!-- =========================
+       SECTION: JSON-LD (Injected)
+       ========================= -->
+  <script id="ld+json" type="application/ld+json">{}</script>
+
+  <!-- =========================
+       SECTION: SCRIPTS
+       ========================= -->
+  <script defer type="module" src="../app.js"></script>
+</body>
+</html>

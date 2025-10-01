@@ -1,0 +1,7 @@
+# ================================
+# SECTION: ROBOTS
+# ================================
+User-agent: *
+Allow: /
+
+Sitemap: https://<your-github-pages-domain>/sitemap.xml
