@@ -1,216 +1,241 @@
 {
-  "_section": "BASICS",
   "basics": {
     "name": "Wes Spangler",
-    "tagline": "Growth, Marketing, Product & Operations Leader",
-    "location": "Glen Cove, New York",
+    "location": "New York, NY",
     "email": "wspangleriii@gmail.com",
-    "phone": "",
-    "website": "",
+    "tagline": "Growth & Marketing Leader — scaling healthcare, tech, and operations.",
+    "pdf": "./Wes_Spangler_Resume.pdf",
     "links": [
-      { "label": "LinkedIn", "url": "https://www.linkedin.com/in/wes-spangler/" }
+      { "label": "LinkedIn", "url": "https://www.linkedin.com/in/wes-spangler/" },
+      { "label": "GitHub", "url": "https://github.com/wspangleriii" }
     ]
   },
-
-  "_section": "SUMMARY",
-  "summary": "Growth and operations leader with a track record of scaling demand, building high-performing teams, and improving end-to-end customer journeys. I combine performance marketing, product thinking, and operational rigor to increase acquisition, conversion, and retention—while simplifying the systems and processes behind them. Recent work spans paid media, analytics, CRM/automation, and funnel optimization; prior leadership: marketing and patient experience/operations through rapid multi-state expansion.",
-
-  "_section": "SKILLS",
-  "skills": [
+  "summary": "Marketing Advisor and Operations Leader with 8+ years driving growth for healthcare and tech. Proven record aligning marketing to operations, reducing CAC, and delivering multi-state expansion. Expert in CRM automation, paid media strategy, and executive reporting.",
+  "highlight_categories": [
     {
-      "category": "Growth & Marketing",
-      "tags": [
-        "Acquisition Strategy",
-        "Performance Marketing",
-        "SEO/Local SEO",
-        "Paid Search",
-        "Paid Social",
-        "CRO",
-        "Landing Pages",
-        "Attribution",
-        "Analytics",
-        "GTM Strategy",
-        "Lifecycle/CRM",
-        "Email/SMS"
+      "title": "Growth & Expansion",
+      "items": [
+        {
+          "title": "Seed to Series B",
+          "org": "Mindful Care",
+          "desc": "Led marketing strategy from team-of-one to 12+ staff, supporting 400% revenue growth.",
+          "stat": "400% Growth"
+        },
+        {
+          "title": "Multi-State Launch",
+          "org": "Mindful Care",
+          "desc": "Led GTM strategy for launching 6 new state markets, driving 30% YoY acquisition growth.",
+          "stat": "6 New Markets"
+        },
+        {
+          "title": "Digital Demand Gen",
+          "org": "Metro Physical Therapy",
+          "desc": "Executed comprehensive digital strategy increasing online patient demand by 40%.",
+          "stat": "40% Lift"
+        }
       ]
     },
     {
-      "category": "Product & Operations",
-      "tags": [
-        "Experimentation",
-        "A/B Testing",
-        "Journey Mapping",
-        "Process Design",
-        "Automation",
-        "Capacity Planning",
-        "KPIs & Dashboards",
-        "Cross-Functional Leadership",
-        "Team Building"
+      "title": "Marketing Strategy",
+      "items": [
+        {
+          "title": "Paid Media Efficiency",
+          "org": "Mindful Care",
+          "desc": "Managed 7-figure budget; decreased CPA via attribution, keyword mix, and capacity budgeting.",
+          "stat": "↓ CAC"
+        },
+        {
+          "title": "YouTube Organic",
+          "org": "Metro Physical Therapy",
+          "desc": "Produced content strategy scaling channel to 100K+ subscribers and 10M+ lifetime views.",
+          "stat": "10M+ Views"
+        },
+        {
+          "title": "Conversion Rate Opt",
+          "org": "Mindful Care",
+          "desc": "Increased lead-to-appointment conversion from 20% to 50% through funnel optimization.",
+          "stat": "50% Conversion"
+        }
       ]
     },
     {
-      "category": "Platforms & Tools",
-      "tags": [
-        "Google Ads",
-        "Google Analytics",
-        "Meta Ads",
-        "ActiveCampaign",
-        "HubSpot",
-        "Mailchimp",
-        "Tag Manager",
-        "SEMrush",
-        "Hotjar",
-        "WordPress",
-        "Unbounce",
-        "Figma",
-        "Adobe CC"
+      "title": "Operations & Tech",
+      "items": [
+        {
+          "title": "Operations Scale",
+          "org": "Mindful Care Ops",
+          "desc": "Oversaw daily operations for 12,000+ monthly appointments across 80+ providers.",
+          "stat": "12k+ Appts/Mo"
+        },
+        {
+          "title": "Automation Arch",
+          "org": "Mindful Care",
+          "desc": "Designed ActiveCampaign workflows reducing patient response times by 25%.",
+          "stat": "25% Faster"
+        },
+        {
+          "title": "Tech Stack Integration",
+          "org": "Marketing Ops",
+          "desc": "Unified CRM, EHR, and Analytics platforms to create a single source of truth for patient data.",
+          "stat": "Unified Data"
+        }
+      ]
+    },
+    {
+      "title": "Leadership",
+      "items": [
+        {
+          "title": "Global Leadership",
+          "org": "Mindful Care Ops",
+          "desc": "Managed a cross-functional team of 50+ staff across the US, Philippines, and Jamaica.",
+          "stat": "50+ Team Size"
+        },
+        {
+          "title": "Financial Strategy",
+          "org": "Executive Team",
+          "desc": "Partnered with C-suite on P&L management and Series B fundraising materials.",
+          "stat": "P&L Mgmt"
+        },
+        {
+          "title": "Cross-Functional Alignment",
+          "org": "Org Wide",
+          "desc": "Bridged gaps between Clinical, Product, and Marketing to unify the patient journey.",
+          "stat": "Silo Breaking"
+        }
       ]
     }
   ],
-
-  "_section": "EXPERIENCE",
+  "skills": [
+    { 
+      "category": "Growth & Paid Media", 
+      "tags": ["Google Ads", "Meta Ads", "DV360 (Programmatic)", "TikTok Ads", "LinkedIn Ads", "ZocDoc", "GTM Strategy", "CAC Analysis"] 
+    },
+    { 
+      "category": "Product & Workflows", 
+      "tags": ["Patient Journey Mapping", "Workflow Design", "Service Design", "CX/UX Optimization", "Intake Workflows", "Clinical Ops Alignment", "SLA Definition"] 
+    },
+    { 
+      "category": "Automation & CRM", 
+      "tags": ["ActiveCampaign", "HubSpot", "Zapier", "Klaviyo", "Customer.io", "Lead Scoring", "SMS Automation", "Pipeline Architecture"] 
+    },
+    { 
+      "category": "Leadership & Strategy", 
+      "tags": ["Team Building (50+)", "Budget Management (7-Fig)", "P&L Responsibility", "Hiring & Training", "Executive Reporting", "Vendor Management"] 
+    },
+    { 
+      "category": "Analytics & Data", 
+      "tags": ["GA4", "Looker Studio", "Tableau", "Power BI", "Mixpanel", "Hotjar", "Attribution Modeling", "Forecasting"] 
+    },
+    { 
+      "category": "SEO & Web Ops", 
+      "tags": ["WordPress", "Unbounce", "SEMrush", "Ahrefs", "Local SEO (GMB)", "Schema Markup", "Site Speed", "Squarespace"] 
+    },
+    { 
+      "category": "Creative & Content", 
+      "tags": ["Adobe Suite", "Premiere Pro", "Figma", "Canva", "YouTube Strategy", "Copywriting", "Video Production"] 
+    },
+    { 
+      "category": "Project Mgmt & Tools", 
+      "tags": ["Asana", "Jira", "Slack", "Microsoft Teams", "HelpScout", "Agile Methodology", "Notion"] 
+    },
+    { 
+      "category": "AI & Emerging Tech", 
+      "tags": ["ChatGPT", "MidJourney", "Perplexity AI", "Prompt Engineering", "Process Automation", "LLM Integration"] 
+    }
+  ],
   "experience": [
     {
-      "slug": "consultant-freelance",
+      "slug": "marketing-consultant",
       "role": "Marketing Consultant",
       "company": "Freelance",
       "location": "Remote",
       "start": "2023-10-01",
       "end": "Present",
-      "summary": "Advise growth-stage companies on acquisition, marketing operations, and digital strategy; tailor playbooks to model and stage.",
       "highlights": [
-        "Partner with leadership to build teams and implement CRM/automation aligned to ops/finance.",
-        "Guide GTM, positioning, and channel mix to diversify acquisition and lift conversion/retention.",
-        "Develop KPI frameworks/dashboards to teach CAC/ROI/funnel measurement."
+        "Advise healthcare/growth-stage companies on scaling patient acquisition and ops, tailoring playbooks to business models.",
+        "Build high-performing teams and implement CRM/automation workflows (ActiveCampaign, HubSpot) aligned with financial goals.",
+        "Develop dashboards (CAC, ROI, Funnel) to teach teams how to measure efficiency and make data-driven decisions.",
+        "Provide guidance on GTM planning, positioning, and channel mix to diversify acquisition beyond single sources."
       ],
-      "tags": ["Growth", "Paid Media", "CRM", "Automation", "Analytics"]
+      "summary": "Fractional growth partner: implement CRM/automation, own paid media, and install measurement that ties marketing to revenue.",
+      "kpis": [
+        { "value": "Strategy", "label": "GTM & Channel Mix" },
+        { "value": "Ops", "label": "CRM & Automation" },
+        { "value": "Data", "label": "CAC/LTV Dashboards" }
+      ],
+      "tags": ["GTM Strategy", "Fractional Leadership", "Revenue Ops"]
     },
     {
-      "slug": "mindful-care-patient-exp-ops",
-      "role": "Director, Patient Experience & Operations",
+      "slug": "mindful-care-ops",
+      "role": "Director, Patient Exp. & Operations",
       "company": "Mindful Care",
-      "location": "Long Island, NY",
+      "location": "New York, NY",
       "start": "2023-01-01",
       "end": "2023-10-01",
-      "summary": "Owned day-to-day operations across multi-state care delivery; improved satisfaction, reduced no-shows, and scaled processes.",
       "highlights": [
-        "Oversaw 12,000+ monthly appointments across 80+ providers and six states.",
-        "Reduced no-show rates by 20% and increased NPS to 70 via process + comms improvements.",
-        "Implemented automation/reporting to streamline lead→appointment conversion and free capacity.",
-        "Led cross-functional teams to optimize scheduling, intake, and follow-up workflows.",
-        "Partnered with marketing/product to align capacity planning with demand generation.",
-        "Hired and managed a team of 40+ across patient experience, scheduling, and operations.",
-        "Instituted quarterly OKRs, performance reviews, and career development plans."
+        "Oversaw day-to-day operations for 12,000+ monthly appointments across 80+ providers in 6 states and 5 service lines.",
+        "Managed a global team of 50+ across the US, Philippines, and Jamaica, creating SOPs and QA protocols.",
+        "Reduced no-show rate by 20% and lifted NPS to 70 via process improvements and patient communication optimization.",
+        "Implemented workflow automation that reduced administrative workload by 30%, lessening hiring needs.",
+        "Produced forecasting reports to align clinical staffing needs with patient volume trends."
       ],
-      "tags": ["Operations", "Automation", "CX/NPS", "Capacity Planning", "Analytics", "Process Improvement", "Team Leadership"]
+      "summary": "Owned multi-state care delivery operations: improved NPS, reduced no-shows, and automated workflows to scale quality.",
+      "kpis": [
+        { "value": "12k+", "label": "Appts / Month" },
+        { "value": "50+", "label": "Global Team Managed" },
+        { "value": "70", "label": "NPS Score" }
+      ],
+      "tags": ["Operations Management", "Staffing", "Compliance/HIPAA", "Process Automation"]
     },
     {
-      "slug": "mindful-care-head-of-marketing",
-      "role": "Head of Marketing (First Marketing Hire)",
+      "slug": "mindful-care-marketing",
+      "role": "Head of Marketing",
       "company": "Mindful Care",
-      "location": "Long Island, NY",
+      "location": "New York, NY",
       "start": "2019-09-01",
       "end": "2022-12-01",
-      "summary": "Built the marketing function and scaled acquisition during multi-state expansion; supported Seed→Series B.",
       "highlights": [
-        "Directed multi-channel growth with seven-figure paid budgets.",
-        "Launched GTM for new states/service lines; aligned with ops readiness.",
-        "Implemented CRM/automation; built performance dashboards for leadership."
+        "Built the marketing function from scratch (first hire) to a team of 12+, driving 400% revenue growth (Seed → Series B).",
+        "Managed a 7-figure paid media budget across Search, Social, and OOH with strict CAC targets.",
+        "Increased lead conversion rates from 20% → 50% via CRO, local SEO, and lead nurturing workflows.",
+        "Led expansion efforts into 4 new markets, driving 30% YoY patient acquisition growth.",
+        "Partnered with C-suite on fundraising, developing investor materials and growth dashboards."
       ],
-      "tags": ["Growth", "SEO", "Paid Search", "Paid Social", "CRO", "Automation", "GTM"]
+      "summary": "First marketing hire. Built the function from scratch and scaled acquisition during rapid multi-state expansion.",
+      "kpis": [
+        { "value": "400%", "label": "Revenue Growth" },
+        { "value": "12+", "label": "Team Built" },
+        { "value": "7-Fig", "label": "Budget Managed" }
+      ],
+      "tags": ["Paid Search", "Paid Social", "SEO", "CRO", "Series B Fundraising", "Budgeting"]
     },
     {
-      "slug": "metro-physical-aquatic-therapy",
+      "slug": "metro-pt",
       "role": "Digital Marketing Manager",
-      "company": "Metro Physical & Aquatic Therapy",
-      "location": "Long Island, NY",
+      "company": "Metro Physical Therapy",
+      "location": "New York, NY",
       "start": "2018-01-01",
       "end": "2020-07-01",
-      "summary": "Led digital strategy for a multi-location provider; increased patient volume via integrated paid + organic.",
       "highlights": [
-        "Drove ~40% patient-volume increase with integrated campaigns.",
-        "Launched SEO/UX-optimized site; materially lifted conversions/bookings.",
-        "Managed paid search/social; ~20% appointment lift while lowering CAC."
+        "Increased online patient demand by 40% through an integrated digital strategy (Paid + Organic).",
+        "Executed an organic YouTube campaign that grew to 10M+ views and 100K+ subscribers.",
+        "Managed Google/Social ads driving a 20% lift in appointments while lowering acquisition costs.",
+        "Implemented reputation management across 12+ locations, boosting local search rankings.",
+        "Organized 5K community events and referral marketing collateral to drive local brand awareness."
       ],
-      "tags": ["SEO", "Paid Media", "Content", "Web Rebuild", "Analytics"]
-    },
-    {
-      "slug": "lensdirect-photographer-contractor",
-      "role": "Social Media Specialist / Photographer (Contract)",
-      "company": "LensDirect",
-      "location": "Long Island, NY",
-      "start": "2020-07-01",
-      "end": "2020-09-01",
-      "summary": "Produced product and brand content to support performance and lifecycle campaigns.",
-      "highlights": [
-        "Shot/edited product and lifestyle assets for ads, email, and onsite use.",
-        "Collaborated with growth team to deliver fast creative iterations."
+      "summary": "Owned site, paid, content, and local SEO to drive measurable patient growth across a multi-location practice.",
+      "kpis": [
+        { "value": "40%", "label": "Demand Increase" },
+        { "value": "10M+", "label": "YouTube Views" },
+        { "value": "100K+", "label": "Subscribers" }
       ],
-      "tags": ["Content", "Creative", "Production", "Adobe CC"]
-    },
-    {
-      "slug": "healthtrax-membership-adviser-designer",
-      "role": "Membership Adviser & Graphic Designer",
-      "company": "Healthtrax Fitness",
-      "location": "Long Island, NY",
-      "start": "2017-08-01",
-      "end": "2018-06-01",
-      "summary": "Supported membership growth and brand collateral across locations.",
-      "highlights": [
-        "Designed print/digital materials for programs and promotions.",
-        "Assisted local teams with outreach and member onboarding."
-      ],
-      "tags": ["Design", "Membership", "Outreach"]
-    },
-    {
-      "slug": "ymca-lake-nona-membership-coordinator",
-      "role": "Membership Coordinator",
-      "company": "Lake Nona YMCA",
-      "location": "Orlando, FL",
-      "start": "2016-06-01",
-      "end": "2017-06-01",
-      "summary": "Coordinated member services and local promotions to increase engagement.",
-      "highlights": [
-        "Improved onboarding/check-in workflows for daily operations.",
-        "Partnered on community events to drive sign-ups."
-      ],
-      "tags": ["Operations", "Membership", "Community"]
-    },
-    {
-      "slug": "ymca-volusia-flagler-district-sports-director",
-      "role": "District Sports Director",
-      "company": "Volusia Flagler YMCA",
-      "location": "Palm Coast, FL",
-      "start": "2015-10-01",
-      "end": "2016-03-01",
-      "summary": "Oversaw multi-site youth sports programming and operations.",
-      "highlights": [
-        "Managed scheduling, staffing, and safety across locations.",
-        "Standardized volunteer training and league communications."
-      ],
-      "tags": ["Operations", "Team Leadership", "Program Management"]
-    },
-    {
-      "slug": "ymca-lake-nona-sports-coordinator",
-      "role": "Sports Coordinator",
-      "company": "Lake Nona YMCA",
-      "location": "Orlando, FL",
-      "start": "2013-11-01",
-      "end": "2015-09-01",
-      "summary": "Coordinated youth sports leagues; improved parent/coach experience.",
-      "highlights": [
-        "Introduced updated clinic formats and scheduling templates.",
-        "Led volunteer recruitment and game-day operations."
-      ],
-      "tags": ["Operations", "Coaching", "Community"]
+      "tags": ["YouTube Growth", "Local SEO", "Video Production", "Content Strategy"]
     }
   ],
-
-
-  "meta": {
-    "analytics": "none",
-    "contact": "mailto",
-    "formspreeEndpoint": ""
-  }
+  "early_career": [
+    { "role": "Photographer/Content Creator", "company": "LensDirect", "year": "2020" },
+    { "role": "Membership Adviser & Designer", "company": "Healthtrax Fitness", "year": "2017-2018" },
+    { "role": "District Sports Director", "company": "Volusia Flagler YMCA", "year": "2015-2016" },
+    { "role": "Sports Coordinator", "company": "Lake Nona YMCA", "year": "2013-2015" }
+  ]
 }
-

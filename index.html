@@ -1,92 +1,88 @@
 <!doctype html>
-<html lang="en" dir="ltr" data-theme="auto">
-  <head>
-    <!-- =========================
-         SECTION: HEAD (Meta & SEO)
-         ========================= -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Wes Spangler — Growth, Marketing, Product & Operations Leader</title>
-    <meta name="description" content="The online resume of Wes Spangler — Growth, Marketing, Product & Operations Leader based in Glen Cove, NY." />
-    <link rel="canonical" href="/" />
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wes Spangler — Resume</title>
+  <meta name="description" content="Wes Spangler — Growth & Marketing Leader.">
+  <meta name="theme-color" content="#0b6cff">
+  
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./app.js" defer></script>
+  <script id="ld+json" type="application/ld+json">{}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-    <!-- Open Graph -->
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Wes Spangler — Growth, Marketing, Product & Operations Leader" />
-    <meta property="og:description" content="Data-driven growth and operations leadership." />
-    <meta property="og:image" content="og-image.png" />
+  <!-- Toast Notification -->
+  <div id="toast" class="toast hidden">Email copied to clipboard!</div>
 
-    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-    <link rel="apple-touch-icon" href="app-icon.png" />
-    <link rel="sitemap" type="application/xml" href="sitemap.xml" />
-    <link rel="stylesheet" href="styles.css" />
-
-    <!-- Preload JSON so app.js gets it fast -->
-    <link rel="preload" as="fetch" href="resume.json" crossorigin="anonymous" />
-  </head>
-
-  <body>
-    <!-- =========================
-         SECTION: HEADER
-         ========================= -->
-    <header class="site-header" role="banner">
-      <div class="container header-grid">
-        <div class="branding">
-          <h1 id="site-name">Wes Spangler</h1>
+  <header>
+    <div class="container header-inner">
+      <div class="brand">
+        <h1 id="site-name">Wes Spangler</h1>
       </div>
-      <div class="actions">
-        <a class="btn" href="#contact" data-nav>Contact</a>
-      </div>
+      <nav>
+        <a href="#highlights" class="nav-link" data-nav>Highlights</a>
+        <a href="#experience" class="nav-link" data-nav>Experience</a>
+        <a href="#skills" class="nav-link" data-nav>Skills</a>
+        <a href="#contact" class="nav-link btn primary" data-nav>Contact</a>
+      </nav>
     </div>
-    </header>
+  </header>
 
+  <main id="main" class="container">
+    <!-- Summary -->
+    <section id="summary" class="card animate-in" style="--delay:0ms">
+      <h2>Summary</h2>
+      <p id="summary-text" class="muted"></p>
+      <div class="meta-row small muted" id="basics-meta"></div>
+    </section>
 
-    <!-- =========================
-         SECTION: MAIN
-         ========================= -->
-    <main id="main" role="main">
-      <!-- Summary -->
-      <section id="summary" class="card">
-        <h2>Summary</h2>
-        <p id="summary-text"></p>
-        <p id="location" class="muted"></p>
-        <div id="links" class="inline-list"></div>
-      </section>
+    <!-- Highlights (Segmented & Collapsible) -->
+    <section id="highlights" class="card animate-in" style="--delay:50ms">
+      <h2>Featured Highlights</h2>
+      <!-- This grid will now hold accordions, not cards directly -->
+      <div id="highlights-list" class="stack-gap"></div>
+    </section>
 
-      <!-- Experience -->
-      <section id="experience" class="card">
-        <h2>Experience</h2>
-        <div id="experience-list" class="stack"></div>
-      </section>
+    <!-- Experience -->
+    <section id="experience" class="card animate-in" style="--delay:100ms">
+      <h2>Experience</h2>
+      <div id="experience-list" class="stack-gap"></div>
 
-      <!-- Skills -->
-      <section id="skills" class="card">
-        <h2>Skills</h2>
-        <div id="skills-grid" class="grid"></div>
-      </section>
-
-      <!-- Contact -->
-      <section id="contact" class="card">
-        <h2>Contact</h2>
-        <div id="contact-slot" class="stack"></div>
-      </section>
-    </main>
-
-    <!-- =========================
-         SECTION: FOOTER
-         ========================= -->
-    <footer class="site-footer" role="contentinfo">
-      <div class="container small muted">
-        <span>&copy; <span id="year"></span> <span id="footer-name">Wes Spangler</span></span>
-        <span class="dot">&middot;</span>
-        <a href="#summary" data-nav>Back to top</a>
+      <!-- Compact Early Career -->
+      <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border);">
+        <h3 class="muted small" style="text-transform:uppercase; margin-bottom:1rem; font-weight:700; letter-spacing:0.05em;">Additional Experience</h3>
+        <div id="early-career-list" class="compact-list"></div>
       </div>
-    </footer>
+    </section>
 
-    <!-- JSON-LD injected by app.js -->
-    <script id="ld+json" type="application/ld+json">{}</script>
+    <!-- Skills -->
+    <section id="skills" class="card animate-in" style="--delay:200ms">
+      <h2>Skills</h2>
+      <div id="skills-grid" class="grid"></div>
+    </section>
 
-    <!-- App -->
-    <script defer type="module" src="app.js"></script>
-  </body>
+    <!-- Contact -->
+    <section id="contact" class="card animate-in" style="--delay:300ms">
+      <h2>Contact</h2>
+      <div id="contact-slot"></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <span>&copy; <span id="year"></span> <span id="footer-name"></span></span>
+      <span class="dot">·</span>
+      <a href="#" data-nav>Back to top</a>
+    </div>
+  </footer>
+  
+  <noscript>
+    <div class="container" style="padding:2rem; color:red; text-align:center;">
+      Please enable JavaScript to view this resume.
+    </div>
+  </noscript>
+</body>
 </html>

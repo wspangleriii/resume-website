@@ -1,351 +1,365 @@
-/* ================================
-   STATE & SELECTORS
-   ================================ */
-const S = { view: null, data: null };
-const ROLE_SLUG = window.ROLE_SLUG || null;   // used on role detail pages
-const inDetailMode = !!ROLE_SLUG;
+/* =============================================================================
+   Wes Spangler — Resume Site (Final v9)
+   ============================================================================= */
 
-const $  = (s, r = document) => r.querySelector(s);
+const S = { view: null, data: null };
+const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
 
 const els = {
-  summary:   $("#summary-text"),
-  location:  $("#location"),
-  links:     $("#links"),
+  summary: $("#summary-text"),
+  summaryMeta: $("#basics-meta"),
+  highlightsList: $("#highlights-list"),
   skillsGrid: $("#skills-grid"),
-  expList:   $("#experience-list"),
-  year:      $("#year"),
-  nameFoot:  $("#footer-name"),
-  jsonld:    document.getElementById("ld+json"),
-  contact:   $("#contact-slot"),
-  // We intentionally do not wire any PDF button now (PDF downloads removed).
+  expList: $("#experience-list"),
+  earlyCareerList: $("#early-career-list"),
+  year: $("#year"),
+  nameFoot: $("#footer-name"),
+  jsonld: document.getElementById("ld+json"),
+  contact: $("#contact-slot"),
+  toast: $("#toast")
 };
 
-/* ================================
-   HASH (deep links)
-   ================================ */
-function parseHash(){
-  const raw = location.hash.slice(1);
-  const p = new URLSearchParams(raw.includes("=") ? raw : `view=${raw}`);
-  S.view = p.get("view") || null;
-}
-function updateHash(push = false){
-  const p = new URLSearchParams();
-  if (S.view) p.set("view", S.view);
-  const h = p.toString();
-  (push ? history.pushState : (u => (location.hash = u)))(null, "", h ? `#${h}` : "#");
-}
-addEventListener("hashchange", () => { parseHash(); renderAll(); });
+const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
-/* ================================
-   UTILITIES
-   ================================ */
-const MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-function fmtDate(iso){
-  if (!iso) return "";
-  if (iso === "Present") return "Present";
+/* --- ICONS --- */
+const ICONS = {
+  map: `<svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>`,
+  link: `<svg viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>`,
+  github: `<svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02a9.68 9.68 0 015 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0012 2z"/></svg>`,
+  linkedin: `<svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 011.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 001.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 00-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>`,
+  caret: `<svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6 6 1.41-1.41z"/></svg>`,
+  email: `<svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>`,
+  copy: `<svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>`,
+  
+  // Experience Role Icons
+  globe: `<svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>`,
+  health: `<svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>`,
+  activity: `<svg viewBox="0 0 24 24"><path d="M19 13c.7 0 1.37.13 1.97.35l1.3-1.52c-.91-.55-2-1-3.27-1-1.95 0-3.63 1.01-4.66 2.52l-1.1-1.84-.85.5c.24.38.49.75.74 1.13.37.58.72 1.15.98 1.76 1.12 2.67 1.31 4.44 1.34 5.09h2.01c-.06-1.35-.32-2.95-1.24-5.25C16.86 13.73 17.86 13 19 13zM8 11l4.34 1.45-1.03 2.91-2.15-.72L12.02 22h-2.1l-1.85-5.2L3.9 18.3l-.6-1.79 9.45-3.2zM7.5 3C9.43 3 11 4.57 11 6.5S9.43 10 7.5 10 4 8.43 4 6.5 5.57 3 7.5 3z"/></svg>`
+};
+
+/* --- UTILS --- */
+function fmtDate(iso) {
+  if (!iso || iso === "Present") return "Present";
   const d = new Date(iso);
   return Number.isNaN(d.getTime()) ? iso : `${MONTHS[d.getUTCMonth()]} ${d.getUTCFullYear()}`;
 }
-function obfuscateEmail(email){
-  const [u,h] = email.split("@");
-  const disp = `${u} [at] ${h}`;
-  const href = `mailto:${u.replaceAll(".","&#46;")}@${h}`;
-  return { href, disp };
-}
-function tag(label){
-  const s = document.createElement("span");
-  s.className = "tag";
-  s.textContent = label;
-  return s;
+
+function getRoleIcon(slug) {
+  // Select icon based on slug/keywords
+  if (slug.includes("consultant") || slug.includes("freelance")) return ICONS.globe;
+  if (slug.includes("metro")) return ICONS.activity;
+  return ICONS.health; // Default for Mindful Care
 }
 
-/* ================================
-   DATA LOADER
-   ================================ */
-async function loadData(){
-  const path = inDetailMode ? "../resume.json" : "./resume.json";
-  const res = await fetch(path, { cache: "no-store" });
-  if (!res.ok) throw new Error(`HTTP ${res.status} ${res.statusText} loading resume.json`);
+function createEl(tag, cls, text) {
+  const el = document.createElement(tag);
+  if (cls) el.className = cls;
+  if (text) el.textContent = text;
+  return el;
+}
+
+function createTag(label) {
+  return createEl("span", "tag", label);
+}
+
+function showToast(msg) {
+  const t = els.toast;
+  t.textContent = msg;
+  t.classList.remove("hidden");
+  setTimeout(() => t.classList.add("hidden"), 3000);
+}
+
+/* --- DATA --- */
+async function loadData() {
+  const res = await fetch("./resume.json", { cache: "no-store" });
+  if (!res.ok) throw new Error("Failed to load resume data");
   S.data = await res.json();
   return S.data;
 }
 
-/* ================================
-   BASIC DEV VALIDATION
-   ================================ */
-function devValidateBasic(){
-  if (!(location.hostname === "localhost" || location.hostname === "127.0.0.1")) return;
-  const d = S.data, errs = [];
-  if (!d?.basics?.name) errs.push("Missing basics.name");
-  if (!Array.isArray(d?.experience)) errs.push("experience must be an array");
-  if (errs.length) console.warn("[resume.json warnings]", errs);
-}
-
-/* ================================
-   RENDER BASICS & SUMMARY
-   ================================ */
-function renderBasics(){
-  const b = S.data.basics || {};
-  const nameEl = $("#site-name"); if (nameEl) nameEl.textContent = b.name || "";
-  if (els.year) els.year.textContent = String(new Date().getFullYear());
-  if (els.nameFoot) els.nameFoot.textContent = b.name || "";
-  if (els.location) els.location.textContent = b.location || "";
-  if (els.links){
-    els.links.innerHTML = "";
-    (b.links || []).forEach(l => {
-      const a = document.createElement("a");
-      a.href = l.url; a.target = "_blank"; a.rel = "me noopener";
-      a.textContent = l.label;
-      els.links.appendChild(a);
+/* --- SCROLL SPY --- */
+function setupScrollSpy() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        $$("nav a").forEach(a => a.classList.toggle("active", a.getAttribute("href") === `#${id}`));
+      }
     });
-  }
+  }, { threshold: 0.3 });
+  $$("section[id]").forEach(sec => observer.observe(sec));
 }
-function renderSummary(){ if (els.summary) els.summary.textContent = S.data.summary || ""; }
 
-/* ================================
-   RENDER SKILLS
-   ================================ */
-function renderSkills(){
-  const grid = els.skillsGrid; if (!grid) return;
-  grid.innerHTML = "";
-  (S.data.skills || []).forEach(cat => {
-    const wrap = document.createElement("div"); wrap.className = "details";
-    const det  = document.createElement("details");
-    const sum  = document.createElement("summary"); sum.textContent = cat.category;
-    const row  = document.createElement("div"); row.className = "chip-row"; row.style.marginTop = ".5rem";
-    (cat.tags || []).forEach(t => row.appendChild(tag(t)));
-    det.append(sum, row); wrap.appendChild(det); grid.appendChild(wrap);
+/* --- RENDERERS --- */
+function renderBasics() {
+  const b = S.data.basics || {};
+  $("#site-name").textContent = b.name || "";
+  if (els.year) els.year.textContent = new Date().getFullYear();
+  if (els.nameFoot) els.nameFoot.textContent = b.name;
+
+  const meta = els.summaryMeta;
+  meta.innerHTML = "";
+  if (b.location) {
+    const loc = createEl("div", "icon-link");
+    loc.innerHTML = `${ICONS.map} <span>${b.location}</span>`;
+    meta.appendChild(loc);
+  }
+  (b.links || []).forEach(l => {
+    const a = createEl("a", "icon-link", "");
+    a.href = l.url; a.target = "_blank"; a.rel = "me noopener";
+    let icon = ICONS.link;
+    if (l.label.toLowerCase().includes("linkedin")) icon = ICONS.linkedin;
+    if (l.label.toLowerCase().includes("github")) icon = ICONS.github;
+    a.innerHTML = `${icon} <span>${l.label}</span>`;
+    meta.appendChild(a);
   });
 }
 
-/* ================================
-   EXPERIENCE (accordion)
-   ================================ */
-function detailsCard(item){
-  const box = document.createElement("div"); box.className = "details";
-  const det = document.createElement("details"); det.id = item.slug || "";
+function renderSummary() {
+  if (els.summary) els.summary.textContent = S.data.summary || "";
+}
 
-  // Summary (role + meta) with chevron
-  const sum  = document.createElement("summary");
-  const left = document.createElement("div"); left.className = "summary-title";
-  const role = document.createElement("div"); role.className = "role"; role.textContent = item.role;
-  const meta = document.createElement("div"); meta.className  = "org";
-  const range = [fmtDate(item.start), (item.end === "Present" ? "Present" : fmtDate(item.end))]
-                .filter(Boolean).join(" – ");
-  meta.textContent = [item.company, item.location, range].filter(Boolean).join(" • ");
-  left.append(role, meta);
-  const caret = document.createElement("span"); caret.className = "caret"; caret.setAttribute("aria-hidden","true");
-  sum.append(left, caret);
+/* --- SEGMENTED HIGHLIGHTS (Collapsible) --- */
+function renderHighlights() {
+  const root = els.highlightsList;
+  if (!root || !S.data.highlight_categories) return;
+  root.innerHTML = "";
 
-  // Body
-  const inner = document.createElement("div"); inner.className = "stack small"; inner.style.marginTop = ".5rem";
-  if (Array.isArray(item.highlights) && item.highlights.length){
-    const ul = document.createElement("ul");
-    item.highlights.forEach(h => { const li=document.createElement("li"); li.textContent=h; ul.appendChild(li); });
-    inner.appendChild(ul);
+  S.data.highlight_categories.forEach((cat, index) => {
+    const card = createEl("details", "skill-card"); // Reusing skill-card styles for accordions
+    if (index === 0) card.open = true;
+
+    const header = createEl("summary", "skill-header");
+    header.innerHTML = `<span>${cat.title}</span> <span class="caret">${ICONS.caret}</span>`;
+
+    const body = createEl("div", "skill-body");
+    // Create the 3-column grid inside the accordion
+    const innerGrid = createEl("div", "grid-3");
+    innerGrid.style.width = "100%"; // Ensure grid takes full width
+
+    cat.items.forEach(item => {
+      const highlight = createEl("div", "highlight-card");
+      highlight.innerHTML = `
+        <div>
+          <div class="highlight-stat">${item.stat}</div>
+          <div class="highlight-org">${item.org}</div>
+          <div class="highlight-title">${item.title}</div>
+          <div class="highlight-desc">${item.desc}</div>
+        </div>
+      `;
+      innerGrid.appendChild(highlight);
+    });
+
+    body.appendChild(innerGrid);
+    card.append(header, body);
+    root.appendChild(card);
+  });
+
+  // Logic to close others
+  const allAccordions = Array.from(root.querySelectorAll("details"));
+  allAccordions.forEach(d => {
+    d.addEventListener("toggle", () => {
+      if (d.open) allAccordions.forEach(o => { if (o !== d) o.open = false; });
+    });
+  });
+}
+
+function renderSkills() {
+  const grid = els.skillsGrid;
+  if (!grid) return;
+  grid.innerHTML = "";
+  
+  (S.data.skills || []).forEach((cat, index) => {
+    const card = createEl("details", "skill-card");
+    if (index === 0) card.open = true;
+
+    const header = createEl("summary", "skill-header");
+    header.innerHTML = `<span>${cat.category}</span> <span class="caret">${ICONS.caret}</span>`;
+    
+    const body = createEl("div", "skill-body");
+    (cat.tags || []).forEach(t => body.appendChild(createTag(t)));
+    
+    card.append(header, body);
+    grid.appendChild(card);
+  });
+
+  const allSkills = Array.from(grid.querySelectorAll("details"));
+  allSkills.forEach(d => {
+    d.addEventListener("toggle", () => {
+      if (d.open) allSkills.forEach(o => { if (o !== d) o.open = false; });
+    });
+  });
+}
+
+function renderExperienceCard(item) {
+  const box = createEl("div", "details");
+  const det = createEl("details");
+  det.id = item.slug || "";
+
+  const sum = createEl("summary");
+  const headerGrid = createEl("div", "exp-header");
+  
+  // REPLACED initials with Icon Logic
+  const avatar = createEl("div", "company-avatar");
+  // Use white text for icons, slightly transparent bg
+  avatar.style.background = "var(--surface)"; 
+  avatar.style.color = "var(--primary)";
+  avatar.innerHTML = getRoleIcon(item.slug);
+  
+  const titleBlock = createEl("div", "exp-title-block");
+  titleBlock.append(createEl("div", "role", item.role));
+  const company = createEl("div", "company-line");
+  company.innerHTML = `<span>${item.company}</span> <span class="dot">•</span> <span>${item.location}</span>`;
+  titleBlock.append(company);
+
+  const metaBlock = createEl("div", "exp-meta");
+  const start = fmtDate(item.start);
+  const end = fmtDate(item.end);
+  const isPresent = end === "Present";
+  const datePill = createEl("div", `date-pill ${isPresent ? "present" : ""}`, `${start} – ${end}`);
+  const caret = createEl("div", "caret");
+  caret.innerHTML = ICONS.caret;
+
+  metaBlock.append(datePill, caret);
+  headerGrid.append(avatar, titleBlock, metaBlock);
+  sum.appendChild(headerGrid);
+
+  const body = createEl("div", "exp-body");
+  if (item.summary) body.appendChild(createEl("p", "exp-summary", item.summary));
+
+  if (item.kpis && item.kpis.length) {
+    const kpiStrip = createEl("div", "kpi-strip");
+    item.kpis.forEach(k => {
+      const kEl = createEl("div", "kpi");
+      kEl.innerHTML = `<span class="n">${k.value}</span><span class="t">${k.label}</span>`;
+      kpiStrip.appendChild(kEl);
+    });
+    body.appendChild(kpiStrip);
   }
-  if (item.summary){
-    const p = document.createElement("p"); p.className = "context"; p.textContent = item.summary;
-    inner.appendChild(p);
+
+  if (item.highlights) {
+    const ul = createEl("ul");
+    item.highlights.forEach(h => ul.appendChild(createEl("li", "", h)));
+    body.appendChild(ul);
   }
 
-  // Footer — tags only (no CTA)
-  const footer = document.createElement("div"); footer.className = "footer-row";
-  const tagsWrap = document.createElement("div"); tagsWrap.className = "chip-row";
-  (item.tags || []).forEach(t => tagsWrap.appendChild(tag(t)));
-  footer.appendChild(tagsWrap);
+  if (item.tags && item.tags.length) {
+    const footer = createEl("div", "footer-row");
+    footer.innerHTML = `<span class="skills-label">Skills:</span>`;
+    item.tags.forEach(t => footer.appendChild(createTag(t)));
+    body.appendChild(footer);
+  }
 
-  det.append(sum, inner, footer); box.appendChild(det);
+  det.append(sum, body);
+  box.appendChild(det);
   return box;
 }
 
-/* ================================
-   GENERIC ROLE ENHANCER (no charts)
-   ================================ */
-function enhanceGenericCard(cardEl, config) {
-  const details = cardEl.querySelector("details");
-  const stack   = details?.querySelector(".stack.small") || details;
+function renderExperience() {
+  const root = els.expList;
+  if (!root) return;
+  root.innerHTML = "";
+  (S.data.experience || []).forEach(item => root.appendChild(renderExperienceCard(item)));
 
-  // Remove default content we don't want duplicated
-  stack.querySelectorAll("ul, .context, .exp-summary, .kpi-strip, .skills-applied").forEach(n => n.remove());
-
-  // Summary (1–2 sentences)
-  if (config.summary) {
-    const p = document.createElement("p");
-    p.className = "exp-summary";
-    p.textContent = config.summary;
-    stack.appendChild(p);
-  }
-
-  // Key Functions (bolded lead + explanation)
-  if (Array.isArray(config.functions) && config.functions.length) {
-    const ul = document.createElement("ul");
-    config.functions.forEach(f => {
-      const li = document.createElement("li");
-      li.innerHTML = `<strong>${f.bold}</strong> ${f.text}`;
-      ul.appendChild(li);
+  const allDetails = $$("details", root);
+  allDetails.forEach(d => {
+    d.addEventListener("toggle", () => {
+      if (d.open) allDetails.forEach(o => { if (o !== d) o.open = false; });
     });
-    stack.appendChild(ul);
-  }
+  });
+  if (allDetails[0]) allDetails[0].open = true;
+}
 
-  // KPI tiles
-  if (Array.isArray(config.kpis) && config.kpis.length) {
-    const kpiStrip = document.createElement("div");
-    kpiStrip.className = "kpi-strip";
-    config.kpis.forEach(k => {
-      const div = document.createElement("div");
-      div.className = "kpi";
-      div.innerHTML = `<div class="n">${k.n}</div><div class="t">${k.t}</div>`;
-      kpiStrip.appendChild(div);
-    });
-    stack.appendChild(kpiStrip);
-  }
+function renderEarlyCareer() {
+  const list = els.earlyCareerList;
+  if (!list || !S.data.early_career) return;
+  list.innerHTML = "";
+  S.data.early_career.forEach(item => {
+    const row = createEl("div", "compact-item");
+    row.innerHTML = `
+      <div class="compact-details">
+        <span class="compact-role">${item.role}</span>
+        <span class="dot">·</span>
+        <span class="compact-company">${item.company}</span>
+      </div>
+      <div class="compact-year">${item.year}</div>
+    `;
+    list.appendChild(row);
+  });
+}
 
-  // Skills applied (unified footer row)
-  const footer = cardEl.querySelector(".footer-row");
-  if (footer) {
-    footer.innerHTML = "";
-    const skillsRow = document.createElement("div");
-    skillsRow.className = "skills-applied";
-    skillsRow.innerHTML = `<span class="skills-label">Skills applied:</span>`;
-    const chips = document.createElement("div"); chips.className = "chip-row";
-    (config.skills || []).forEach(t => {
-      const s = document.createElement("span");
-      s.className = "tag";
-      s.textContent = t;
-      chips.appendChild(s);
+function renderContact() {
+  const slot = els.contact;
+  if (!slot) return;
+  slot.innerHTML = "";
+  const b = S.data.basics || {};
+  
+  if (b.email) {
+    const [u, h] = b.email.split("@");
+    const fullEmail = `${u}@${h}`;
+    const disp = `${u} [at] ${h}`;
+
+    const p = createEl("p");
+    p.style.marginBottom = "1.5rem";
+    p.style.fontSize = "1.1rem";
+    p.innerHTML = `Email: <strong style="color:var(--text)">${disp}</strong>`;
+    
+    const btnRow = createEl("div", "", "");
+    btnRow.style.display = "flex";
+    btnRow.style.gap = "1rem";
+    btnRow.style.flexWrap = "wrap";
+
+    const btnMail = createEl("a", "btn primary", "");
+    btnMail.href = `mailto:${fullEmail}`;
+    btnMail.innerHTML = `${ICONS.email} <span>Send Email</span>`;
+
+    const btnCopy = createEl("button", "btn secondary", "");
+    btnCopy.innerHTML = `${ICONS.copy} <span>Copy</span>`;
+    
+    btnCopy.addEventListener("click", () => {
+      navigator.clipboard.writeText(fullEmail).then(() => {
+        showToast("Email copied to clipboard!");
+        const original = btnCopy.innerHTML;
+        btnCopy.innerHTML = `<span>Copied!</span>`;
+        btnCopy.style.borderColor = "var(--success)";
+        btnCopy.style.color = "var(--success)";
+        setTimeout(() => {
+          btnCopy.innerHTML = original;
+          btnCopy.style.borderColor = "";
+          btnCopy.style.color = "";
+        }, 2000);
+      });
     });
-    skillsRow.appendChild(chips);
-    footer.appendChild(skillsRow);
+
+    btnRow.append(btnMail, btnCopy);
+    slot.append(p, btnRow);
   }
 }
 
-/* ================================
-   RENDER EXPERIENCE (apply enhancer)
-   ================================ */
-function renderExperience(){
-  const root = els.expList; if (!root) return;
-  root.innerHTML = "";
-  let items = (S.data.experience || []);
-  if (inDetailMode) items = items.filter(i => i.slug === ROLE_SLUG);
-
-  items.forEach(i => {
-    const cardEl = detailsCard(i);
-    root.appendChild(cardEl);
-
-    // Standardized, scannable snapshot for Head of Marketing
-    if (i.slug === "mindful-care-head-of-marketing") {
-      enhanceGenericCard(cardEl, {
-        summary:
-          "Built the marketing function and scaled multi-channel acquisition during multi-state expansion; supported Seed → Series B with rigorous performance and GTM execution.",
-        functions: [
-          { bold: "Directed multi-channel acquisition", text: "with seven-figure paid budgets across search, social, and programmatic to drive efficient pipeline growth." },
-          { bold: "Launched GTM for new markets", text: "coordinating with operations to ensure capacity readiness and compliant service rollouts." },
-          { bold: "Implemented CRM & automation", text: "establishing measurement, lead routing, and lifecycle workflows for full-funnel visibility." },
-          { bold: "Built and led the team", text: "hiring 12+ marketers and managing agencies to deliver iterative creative, landing pages, and CRO improvements." },
-          { bold: "Owned SEO/CRO & reporting", text: "publishing exec dashboards to track acquisition, conversion, and ROI." }
-        ],
-        kpis: [
-          { n: "400%+", t: "revenue growth during tenure" },
-          { n: "12+",   t: "internal team built (plus agencies)" },
-          { n: "7",     t: "states launched (GTM support)" }
-        ],
-        skills: ["Growth", "Paid Search", "Paid Social", "SEO", "CRO", "Automation", "Attribution", "GTM", "Analytics"]
-      });
+/* --- INIT --- */
+async function init() {
+  try {
+    await loadData();
+    renderBasics();
+    renderSummary();
+    renderHighlights();
+    renderExperience();
+    renderEarlyCareer();
+    renderSkills();
+    renderContact();
+    setupScrollSpy();
+    
+    const hash = location.hash.slice(1).replace("view=", "");
+    if (hash) {
+      const el = document.getElementById(hash);
+      if (el) setTimeout(() => el.scrollIntoView({ behavior: "smooth" }), 200);
     }
 
-    // For other roles, leave default card for now (or call enhanceGenericCard with a role-specific config)
-  });
-
-  // Accordion: one open at a time; open first by default on homepage
-  const all = Array.from(root.querySelectorAll("details"));
-  all.forEach(d => d.addEventListener("toggle", () => { if (d.open) all.forEach(o => { if (o !== d) o.open = false; }); }));
-  if (!inDetailMode && all[0]) all[0].open = true;
-}
-
-/* ================================
-   CONTACT RENDERER
-   ================================ */
-function renderContact(){
-  const slot = els.contact; if (!slot) return; slot.innerHTML = "";
-  const m = S.data.meta || {}, b = S.data.basics || {};
-  if ((m.contact || "mailto") === "mailto" && b.email){
-    const { href, disp } = obfuscateEmail(b.email);
-    const p = document.createElement("p"); p.innerHTML = `Email: <a href="${href}" rel="nofollow">${disp}</a>`;
-    const a = document.createElement("a"); a.className = "btn"; a.href = href; a.rel = "nofollow"; a.textContent = "Email Me";
-    slot.append(p, a);
-  } else {
-    slot.append(document.createTextNode("Contact method not configured."));
+  } catch (e) {
+    console.error(e);
+    $("#main").innerHTML = `<p style="color:red; padding:2rem;">Error loading resume data.</p>`;
   }
 }
 
-/* ================================
-   JSON-LD (Person)
-   ================================ */
-function injectJSONLD(){
-  const b = S.data.basics || {};
-  const ld = {
-    "@context":"https://schema.org",
-    "@type":"Person",
-    "name": b.name,
-    "description": b.tagline,
-    "address": b.location,
-    "email": b.email ? `mailto:${b.email}` : undefined,
-    "url": "",                        // no PDF/resume URL
-    "sameAs": (b.links || []).map(l => l.url)
-  };
-  if (els.jsonld) els.jsonld.textContent = JSON.stringify(ld, null, 2);
-}
-
-/* ================================
-   NAV / SCROLL
-   ================================ */
-function wireControls(){
-  $$("a[data-nav]").forEach(a => {
-    a.addEventListener("click", e => {
-      const id = a.getAttribute("href").replace("#", "");
-      S.view = id; updateHash(true);
-    });
-  });
-}
-function handleDeepLinkScroll(){
-  if (inDetailMode) return;
-  if (S.view){
-    const el = document.getElementById(S.view);
-    if (el) el.scrollIntoView({ behavior:"smooth", block:"start" });
-  }
-}
-
-/* ================================
-   RENDER ALL + INIT
-   ================================ */
-function safe(name, fn){
-  try { fn(); }
-  catch(e){ console.error(`[Render error] ${name}`, e); throw new Error(`${name} failed: ${e.message}`); }
-}
-function renderAll(){
-  safe("Basics",    renderBasics);
-  safe("Summary",   renderSummary);
-  safe("Skills",    renderSkills);
-  safe("Experience",renderExperience);
-  safe("Contact",   renderContact);
-  safe("JSON-LD",   injectJSONLD);
-  safe("Deep Link", handleDeepLinkScroll);
-
-  if (inDetailMode){
-    const role = (S.data.experience || []).find(i => i.slug === ROLE_SLUG);
-    if (role) document.title = `Wes Spangler — ${role.role}`;
-  }
-}
-
-(async function init(){
-  parseHash(); wireControls();
-  try{
-    await loadData(); devValidateBasic(); renderAll();
-  }catch(e){
-    const msg = e?.message || "Could not load content.";
-    const main = $("#main");
-    if (main) main.innerHTML = `<section class="card"><h2>Oops</h2><p>${msg}</p></section>`;
-  }
-})();
+init();
